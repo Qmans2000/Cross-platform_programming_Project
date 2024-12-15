@@ -134,6 +134,17 @@ const sounds = [
   '../sound/Amethyst_resonate4.ogg'
 ];
 
+const preloadedSounds = [];
+
+function preloadSounds(soundPaths) {
+  soundPaths.forEach(path => {
+    const audio = new Audio(path);
+    preloadedSounds.push(audio);
+  });
+}
+
+preloadSounds(sounds);
+
 soundButtons.forEach(button => {
   button.addEventListener('click', () => {
     const randomIndex = Math.floor(Math.random() * sounds.length);
